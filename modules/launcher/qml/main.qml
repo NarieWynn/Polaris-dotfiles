@@ -12,6 +12,7 @@ Window {
     SearchBar {
         id: searchInput
         width: parent.width
+        onTextChanged: searchProxy.setFilterFixedString(text)
     }
     AppLauncher {
         anchors.top: searchInput.bottom

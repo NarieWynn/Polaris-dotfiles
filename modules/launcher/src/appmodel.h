@@ -1,5 +1,12 @@
 #pragma once
 #include <QAbstractListModel>
+#include <QList>
+
+struct AppInfo {
+    QString name;
+    QString exec;
+    QString icon;
+};
 
 class AppModel : public QAbstractListModel
 {
@@ -7,17 +14,19 @@ class AppModel : public QAbstractListModel
 
 public:
     explicit AppModel(QObject *parent = nullptr);
-
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QHash<int, QByteArray> roleNames() const override;
+    static Q_INVOKABLE void launchApp(const QString &exec);
+    [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 private:
-
     enum AppRoles {
-        NameRole = Qt::UserRole + 1
+        NameRole = Qt::UserRole + 1,
+        ExecRole,
+        IconRole
     };
 
-    QStringList m_names;
+    QList<AppInfo> m_apps;
+
+    void loadApps();
 };
