@@ -1,6 +1,5 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-//#include <QDirIterator>
 #include "appmodel.h"
 #include <QQmlContext>
 #include <QSettings>

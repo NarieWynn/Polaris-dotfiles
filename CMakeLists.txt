@@ -12,3 +12,4 @@ else()
 endif()
 
 add_subdirectory(modules/launcher)
+add_subdirectory(modules/taskbar)
