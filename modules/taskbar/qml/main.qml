@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import "components"
+
 Window {
     id: root
     width: Screen.width
@@ -9,13 +10,23 @@ Window {
     title: "taskbar"
     color: "#1e1e2e"
 
-    Clock{
-        id: clock
-        width: 50
-        height: parent.height
+    Row {
+        id: rightSystemTray
+        spacing: 16
+
 
         anchors.right: parent.right
         anchors.rightMargin: 16
         anchors.verticalCenter: parent.verticalCenter
+
+        Clock {
+            id: clockWidget
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        Battery {
+            id: batteryWidget
+            anchors.verticalCenter: parent.verticalCenter
+        }
     }
 }

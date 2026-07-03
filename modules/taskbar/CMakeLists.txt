@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 COMPONENTS Core Gui Qml Quick REQUIRED)
+find_package(Qt6 COMPONENTS Core Gui Qml Quick DBus REQUIRED)
 
 qt_policy(SET QTP0001 NEW)
 qt_policy(SET QTP0004 NEW)
@@ -14,6 +14,8 @@ qt_add_executable(polaris_taskbar
         src/main.cpp
         src/clock.h
         src/clock.cpp
+        src/battery.h
+        src/battery.cpp
 )
 
 qt_add_qml_module(polaris_taskbar
@@ -22,6 +24,7 @@ qt_add_qml_module(polaris_taskbar
         QML_FILES
         qml/main.qml
         qml/components/Clock.qml
+        qml/components/Battery.qml
 )
 
 target_link_libraries(polaris_taskbar PRIVATE
@@ -29,4 +32,5 @@ target_link_libraries(polaris_taskbar PRIVATE
         Qt6::Gui
         Qt6::Qml
         Qt6::Quick
+        Qt6::DBus
 )

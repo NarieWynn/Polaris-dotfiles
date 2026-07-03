@@ -12,8 +12,12 @@ Clock::Clock(QObject *parent):QObject(parent)
 
 void Clock::updateTime() {
     m_currentTime = QDateTime::currentDateTime().toString("hh:mm");
+    m_currentDate = QDateTime::currentDateTime().toString("dd/MM/yy");
     emit timeChanged();
 }
 QString Clock::timeText() const {
     return m_currentTime;
+}
+QString Clock::dateText() const {
+    return m_currentDate;
 }

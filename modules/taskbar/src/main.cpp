@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include "clock.h"
 #include <QQmlContext>
-
+#include "battery.h"
 using namespace Qt::StringLiterals;
 
 int main(int argc, char *argv[]) {
@@ -20,6 +20,8 @@ int main(int argc, char *argv[]) {
     Clock clock;
     engine.rootContext()->setContextProperty("sysClock", &clock);
 
+    BatteryManager manager;
+    engine.rootContext()->setContextProperty("sysBattery", &manager);
 
     engine.load(url);
 

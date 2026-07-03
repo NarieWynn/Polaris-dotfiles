@@ -6,10 +6,12 @@ class Clock : public QObject {
     Q_OBJECT
 
     Q_PROPERTY(QString timeText READ timeText NOTIFY timeChanged)
+    Q_PROPERTY(QString dateText READ dateText NOTIFY timeChanged)
 public:
     explicit Clock(QObject *parent = nullptr);
 
     [[nodiscard]] QString timeText() const;
+    [[nodiscard]] QString dateText() const;
 
 signals:
     void timeChanged();
@@ -19,5 +21,6 @@ private slots:
 
 private:
     QTimer* m_timer;
+    QString m_currentDate;
     QString m_currentTime;
 };
