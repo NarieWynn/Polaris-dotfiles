@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
-
 project(PolarisDesktopEnvironment LANGUAGES CXX)
 
-find_package(Vulkan REQUIRED)
+set(CMAKE_AUTOMOC ON)
+
+find_package(Qt6 COMPONENTS Core Qml Quick REQUIRED)
+find_package(Vulkan)
 
 if(Vulkan_FOUND)
     message(STATUS "Found Vulkan: Using Vulkan backend for optimal performance.")
@@ -13,3 +15,4 @@ endif()
 
 add_subdirectory(modules/launcher)
 add_subdirectory(modules/taskbar)
+add_subdirectory(modules/settings)

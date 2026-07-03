@@ -8,7 +8,7 @@ Item {
     //xếp chồng 2 text
     Column {
         id: clockColumn
-        spacing: 2 //space between time text and date text
+        spacing: 1 //space between time text and date text
 
         //place text in the middle of taskbar (vertical)
         anchors.verticalCenter: parent.verticalCenter
@@ -18,15 +18,15 @@ Item {
             text: sysClock.dateText
             color: "white"
             font.bold: true
-            font.pixelSize: 11
-            anchors.horizontalCenter: parent.horizontalCenter 
+            font.pixelSize: 12
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Text {
             id: timeTextDisplay
             text: sysClock.timeText
             color: "#aaaaaa"
-            font.pixelSize: 14
+            font.pixelSize: 12
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
