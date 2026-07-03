@@ -11,7 +11,7 @@ Row {
 
     Text {
         id: batteryIcon
-        font.family: "JetBrainsMono Nerd Font" 
+        font.family: "JetBrainsMono Nerd Font"
         font.pixelSize: 16
 
 

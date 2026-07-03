@@ -1,6 +1,5 @@
 #ifndef BATTERY_H
 #define BATTERY_H
-#include <QObject>
 #include <QTimer>
 
 class BatteryManager : public QObject {
@@ -18,7 +17,7 @@ public:
         void batteryChanged();
 
 private slots:
-    // Hàm này sẽ được QTimer gọi liên tục để cập nhật số liệu thời gian thực
+
     void updateBatteryStatus();
 
 private:
@@ -27,4 +26,4 @@ private:
     QTimer *m_timer;
 };
 
-#endif // BATTERY_H
+#endif
