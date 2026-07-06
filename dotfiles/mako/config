@@ -1,0 +1,35 @@
+max-visible=3
+sort=-time
+font=JetBrainsMono Nerd Font 10
+
+width=360
+height=120
+
+
+padding=18
+margin=15
+
+
+background-color=#0E1712CD
+
+
+text-color=#FFFFFF
+
+
+border-size=1
+border-color=#39FF14FF
+
+
+border-radius=14
+
+
+format=<b>%s</b>\n%b
+
+
+progress-color=over #4CAF50FF
+
+
+[urgency=critical]
+border-size=2
+border-color=#FF3B30FF
+background-color=#1A0A0ACD
