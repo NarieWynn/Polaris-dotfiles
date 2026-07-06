@@ -155,16 +155,19 @@ mako &
 
 ```
 Polaris/
+├── CMakeLists.txt
 ├── dotfiles/
 │  ├── kitty/
 │  │   └── kitty.conf 
-│  └── fastfetch/
-│      └── config.jsonc
+│  ├── fastfetch/
+│  │   └── config.jsonc
 │  └── mako/
 │      └── config
 ├── modules/
 │   ├── launcher/
+│   │   ├── CMakeLists.txt
 │   │   ├── src/
+│   │   │   ├── main.cpp
 │   │   │   ├── appmodel.h/.cpp
 │   │   │   └── commandinterpreter.h/.cpp
 │   │   └── qml/
@@ -173,24 +176,40 @@ Polaris/
 │   │           ├── AppLauncher.qml
 │   │           └── SearchBar.qml
 │   ├── taskbar/
+│   │   ├── CMakeLists.txt
 │   │   ├── src/
+│   │   │   ├── main.cpp
 │   │   │   ├── clock.h/.cpp
 │   │   │   ├── battery.h/.cpp
-│   │   │   ├── workspace.h/.cpp
-│   │   │   └── wifi.h/.cpp
+│   │   │   ├── calendar.h/.cpp
+│   │   │   └── workspace.h/.cpp
+│   │   │   
 │   │   └── qml/
 │   │       ├── main.qml
+│   │       ├── CalendarPopupWindow.qml
 │   │       ├── WifiPopupWindow.qml
 │   │       └── components/
 │   │           ├── Clock.qml
 │   │           ├── Battery.qml
 │   │           ├── WifiIndicator.qml
 │   │           ├── WifiPopup.qml
+│   │           ├── CalendarView.qml
+│   │           ├── DateDisplay.qml
 │   │           └── WorkspaceIndicator.qml
-│   └── settings/
-└── shared/
-    └── network/
-        └── wifi.h/.cpp
+│   ├── settings/
+│   │   ├── CMakeLists.txt
+│   ├── osd/
+│   │   ├── CMakeLists.txt
+│   │   ├── src/
+│   │   │   └── main.cpp
+│   │   └── qml/
+│   │       └── main.qml
+├── shared/
+│   ├── CMakeLists.txt
+│   ├── network/
+│   │   └── wifi.h/.cpp
+│   └── hardware/
+│       └── hardwareInterface.h/.cpp
 ```
 ---
 
@@ -203,7 +222,7 @@ Polaris/
 - [x] Workspace indicator (Hyprland IPC)
 - [x] Wifi popup with connect/disconnect
 - [x] Notification daemon (mako)
-- [ ] Volume/Brightness popup
+- [x] Volume/Brightness popup
 - [ ] Settings panel
 - [ ] Dynamic theming from wallpaper
 
@@ -212,4 +231,3 @@ Polaris/
 ## Author
 
 **Huynh Ngoc Nguyen** — CS Student at HCMIU, VNU-HCM  
-Interested in automotive UI development with Qt6/QML

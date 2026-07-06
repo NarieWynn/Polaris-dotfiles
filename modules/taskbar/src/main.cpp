@@ -6,7 +6,7 @@
 #include "clock.h"
 #include "battery.h"
 #include "workspace.h"
-#include <wifi.h>
+#include <network/wifi.h>
 #include <QSize>
 #include "calendar.h"
 
