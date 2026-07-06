@@ -224,7 +224,7 @@ Polaris/
 - [x] Notification daemon (mako)
 - [x] Volume/Brightness popup
 - [ ] Settings panel
-- [ ] Dynamic theming from wallpaper
+- [x] Dynamic theming from wallpaper
 
 ---
 
