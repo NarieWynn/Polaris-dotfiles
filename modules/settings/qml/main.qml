@@ -185,18 +185,22 @@ Window {
                     anchors.fill: parent
                     anchors.margins: 20
 
-                    source: currentTab === "wifi" ? "components/WifiSettings.qml" :
-                            currentTab === "bluetooth" ? "components/BluetoothSettings.qml" :
-                                currentTab === "sound" ? "components/SoundSettings.qml" :
-                                    currentTab === "display" ? "components/DisplaySettings.qml" :
-                                        currentTab === "sharing" ? "components/SharingSettings.qml" :
-                                            currentTab === "security" ? "components/FirewallSettings.qml" :
-                                                currentTab === "sandbox" ? "components/SandboxSettings.qml" :
-                                                    currentTab === "usb" ? "components/UsbSettings.qml" :
-                                                        currentTab === "power" ? "components/PowerSettings.qml" :
-                                                            currentTab === "shortcuts" ? "components/ShortcutsSettings.qml" :
-                                                                currentTab === "about" ? "components/AboutSettings.qml" : ""
-                                                                    //"components/ComingSoon.qml"
+
+                    readonly property var componentRouter: {
+                        "wifi": "components/WifiSettings.qml",
+                        "sound": "components/SoundSettings.qml",
+                        "display": "components/DisplaySettings.qml",
+                        "about": "components/AboutSettings.qml",
+                        //"sharing": "components/SharingSettings.qml",
+                        //"security": "components/FirewallSettings.qml",
+                        //"sandbox": "components/SandboxSettings.qml",
+                        //"usb": "components/UsbSettings.qml",
+                        //"power": "components/PowerSettings.qml",
+                        //"bluetooth": "components/BluetoothSettings.qml",
+                        //"shortcuts": "components/ShortcutsSettings.qml"
+                    }
+                    source: componentRouter[currentTab] || "components/ComingSoon.qml"
+
                 }
             }
         }

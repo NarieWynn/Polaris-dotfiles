@@ -1,4 +1,4 @@
-# Polaris Desktop Environment
+````# Polaris Desktop Environment
 
 A lightweight Desktop Environment shell built from scratch with **C++23** and **Qt6/QML**,
 targeting **Hyprland/Wayland**. Polaris is designed as a daily-driver DE replacement
@@ -291,3 +291,4 @@ Polaris/
 ## Author
 
 **Huynh Ngoc Nguyen** — CS Student at HCMIU, VNU-HCM  
+````
