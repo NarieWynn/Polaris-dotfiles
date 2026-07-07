@@ -6,6 +6,7 @@
 #include <LayerShellQt/Window>
 #include <hardware/hardwareInterface.h>
 #include <iostream>
+
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
 
@@ -14,27 +15,40 @@ int main(int argc, char *argv[]) {
 
     if (argc > 1) {
         QString arg1 = argv[1];
-        if (arg1 == "--volume-up") { mode = "volume"; delta = 5; }
-        else if (arg1 == "--volume-down") { mode = "volume"; delta = -5; }
+
+        if (arg1 == "--volume-up")   { mode = "volume";     delta = 5; }
+        else if (arg1 == "--volume-down") { mode = "volume";     delta = -5; }
         else if (arg1 == "--brightness-up") { mode = "brightness"; delta = 5; }
         else if (arg1 == "--brightness-down") { mode = "brightness"; delta = -5; }
+
+        else if (argc > 2) {
+            QString action = argv[2];
+            if (arg1 == "--volume") {
+                mode = "volume";
+                delta = (action == "up") ? 5 : -5;
+            } else if (arg1 == "--brightness") {
+                mode = "brightness";
+                delta = (action == "up") ? 5 : -5;
+            }
+        }
     }
 
     QQuickView view;
-
     view.setResizeMode(QQuickView::SizeViewToRootObject);
 
-    HardwareInterface hw;
+
+    HardwareInterface *hw = new HardwareInterface(&app);
+
     if (mode == "volume") {
-        hw.adjustVolume(delta);
+        hw->adjustVolume(delta);
     } else if (mode == "brightness") {
-        hw.adjustBrightness(delta);
+        hw->adjustBrightness(delta);
     }
 
-    std::cout << "🟢 [Polaris Backend] Final Target -> Volume: " << hw.volume()
-              << "%, Brightness: " << hw.brightness() << "%" << std::endl;
+    std::cout << "🟢 [Polaris Backend] Final Target -> Volume: " << hw->volume()
+              << "%, Brightness: " << hw->brightness() << "%" << std::endl;
 
-    view.engine()->rootContext()->setContextProperty("hardwareManager", &hw);
+    view.engine()->rootContext()->setContextProperty("hardwareManager", hw);
     view.engine()->rootContext()->setContextProperty("osdMode", mode);
 
     LayerShellQt::Window *layerWindow = LayerShellQt::Window::get(&view);
